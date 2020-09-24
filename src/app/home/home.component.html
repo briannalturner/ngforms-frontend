@@ -1,0 +1,18 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome to Dog App!</h1>
+      <p class="lead">This website is for browsing dogs.</p>
+    </div>
+</div>
+<h2 class="ml-4">Featured Pooches</h2>
+<div class="p-4">
+    <div class="row">
+        <div class="card clickable col p-2 mx-1" *ngFor='let dog of dogs.slice(-3)' [routerLink]="['/dogs', dog.id]">
+            <div class="card-header">
+                <h4>{{dog.name}}</h4>
+            </div>
+            <img [src]='dog.image' class="card-img" alt="">
+            <div class="card-img-overlay"></div>
+        </div>
+    </div>
+</div>

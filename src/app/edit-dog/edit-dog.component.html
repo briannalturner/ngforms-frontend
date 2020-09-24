@@ -1,0 +1,133 @@
+<div class="container my-4" *ngIf='dog'>
+    <div class="card">
+        <div class="card-header bg-dark" style="color: white;">Dog Form</div>
+        <div class="card-body">
+            <form action="" [formGroup]='editDogForm' (ngSubmit)='save()'>
+                <div class="text-center border" style="min-height: 200px;">
+                    <img [src]="editDogForm.get('image').value" class="rounded m-1 border" style="width: 500px;" alt="">
+                </div>
+                <div class="">
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="text" 
+                            class="form-control" 
+                            id="image" 
+                            placeholder="Image URL (Required) (Example: http://website.com/images/1)" 
+                            formControlName='image'
+                            [ngClass]="{ 'is-invalid' : (editDogForm.get('image').touched || editDogForm.get('image').dirty) && !editDogForm.get('image').valid }"
+                            >
+                            <span class="invalid-feedback">
+                                <span *ngIf="editDogForm.get('image').errors?.required">
+                                    Please provide an image url.
+                                </span>
+                            </span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="name">Name</label>
+                      <input type="text" class="form-control" 
+                        id="name" 
+                        placeholder="Name (Required)" 
+                        formControlName='name'
+                        [ngClass]="{ 'is-invalid' : (editDogForm.get('name').touched || editDogForm.get('name').dirty) && !editDogForm.get('name').valid }"
+                        >
+                        <span class="invalid-feedback">
+                            <span *ngIf="editDogForm.get('name').errors?.required">
+                                Please provide a name.
+                            </span>
+                            <span *ngIf="editDogForm.get('name').errors?.minlength">
+                                Name must be at least 2 characters.
+                            </span>
+                            <span *ngIf="editDogForm.get('name').errors?.maxlength">
+                                Name can only be 15 characters.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="breed">Breed</label>
+                      <input type="text" class="form-control" id="breed" placeholder="Breed (Required)" 
+                      formControlName='breed'
+                      [ngClass]="{ 'is-invalid' : (editDogForm.get('breed').touched || editDogForm.get('breed').dirty) && !editDogForm.get('breed').valid }"
+                      >
+                      <span class="invalid-feedback">
+                        <span *ngIf="editDogForm.get('breed').errors?.required">
+                            Please provide a breed.
+                        </span>
+                        <span *ngIf="editDogForm.get('breed').errors?.maxlength">
+                            Breed can only be 20 characters.
+                        </span>
+                    </span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" placeholder="Age (Required)" 
+                        formControlName='age'
+                        [ngClass]="{ 'is-invalid' : (editDogForm.get('age').touched || editDogForm.get('age').dirty) && !editDogForm.get('age').valid }"
+                        >
+                        <span class="invalid-feedback">
+                            <span *ngIf="editDogForm.get('age').errors?.required">
+                                Please provide an age.
+                            </span>
+                            <span *ngIf="editDogForm.get('age').errors?.maxlength">
+                                Age can only be 2 characters.
+                            </span>
+                        </span>
+                      </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="weight">Weight</label>
+                        <input type="number" class="form-control" id="weight" 
+                        placeholder="Weight (Required)" 
+                        formControlName='weight'
+                        [ngClass]="{ 'is-invalid' : (editDogForm.get('weight').touched || editDogForm.get('weight').dirty) && !editDogForm.get('weight').valid }"
+                        >
+                        <span class="invalid-feedback">
+                            <span *ngIf="editDogForm.get('weight').errors?.required">
+                                Please provide a weight.
+                            </span>
+                            <span *ngIf="editDogForm.get('weight').errors?.maxlength">
+                                Weight can only be 3 characters.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="coat">Coat Color</label>
+                        <input type="text" class="form-control" id="coat" 
+                        placeholder="Coat Color (Required)" 
+                        formControlName='coat'
+                        [ngClass]="{ 'is-invalid' : (editDogForm.get('coat').touched || editDogForm.get('coat').dirty) && !editDogForm.get('coat').valid }"
+                        >
+                        <span class="invalid-feedback">
+                            <span *ngIf="editDogForm.get('coat').errors?.required">
+                                Please provide a coat color.
+                            </span>
+                            <span *ngIf="editDogForm.get('coat').errors?.maxlength">
+                                Coat color can only be 10 characters.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="eyes">Eye Color</label>
+                        <input type="text" class="form-control" id="eyes" placeholder="Eye Color (Required)" 
+                        formControlName='eyes'
+                        [ngClass]="{ 'is-invalid' : (editDogForm.get('eyes').touched || editDogForm.get('eyes').dirty) && !editDogForm.get('eyes').valid }"
+                        >
+                        <span class="invalid-feedback">
+                            <span *ngIf="editDogForm.get('eyes').errors?.required">
+                                Please provide an eye color.
+                            </span>
+                            <span *ngIf="editDogForm.get('eyes').errors?.maxlength">
+                                Eye color can only be 10 characters.
+                            </span>
+                        </span>
+                    </div>
+                  </div>
+                  <div style="width: 500px;">
+                    <button type="submit" class="btn btn-block mt-2 btn-outline-dark">Submit</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>

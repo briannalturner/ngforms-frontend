@@ -1,0 +1,54 @@
+<div class="my-3">
+    <div class="row" *ngIf='dogs'>
+        <div class="col-md-4">
+            <div class="card">
+                <h1 class="card-header bg-dark" style="color: white;">All Dogs</h1>
+                <div class="card-body overflow-scroll">
+                    <div class="card m-1" (click)='setActiveDog(dog)' *ngFor='let dog of dogs'>
+                        <span class="" *ngIf='dog !== activeDog'>
+                            <img [src]="dog.image" alt="" class="float-left rounded" style='width: 100px; height: 100px; object-fit: cover'>
+                            <h3 class="text-center m-4" style="margin: auto;">{{ dog.name }}</h3>
+                        </span>
+                        <span class="bg-dark" *ngIf='dog === activeDog'>
+                            <img [src]="dog.image" alt="" class="float-left rounded" style='width: 100px; height: 100px; object-fit: cover'>
+                            <h3 class="text-center m-4" style="margin: auto; color: white;">{{ dog.name }}</h3>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" *ngIf='activeDog'>
+            <h1 class="card-header border bg-dark" style="color: white;">{{ activeDog.name }}</h1>
+            <div class="card-body border-right border-left" style="width: inherit;">
+                <img [src]="activeDog.image" class="rounded" alt="" style="width: inherit;">
+                <div class="row mt-4">
+                    <div class="col text-center border-right">
+                        <h5>Breed</h5>
+                        <p>{{ activeDog.breed }}</p>
+                    </div>
+                    <div class="col text-center border-right">
+                        <h5>Age</h5>
+                        <p>{{ activeDog.age }}</p>
+                    </div>
+                    <div class="col text-center border-right">
+                        <h5>Coat Color</h5>
+                        <p>{{ activeDog.coat }}</p>
+                    </div>
+                    <div class="col text-center border-right">
+                        <h5>Eye Color</h5>
+                        <p>{{ activeDog.eyes }}</p>
+                    </div>
+                    <div class="col text-center">
+                        <h5>Weight</h5>
+                        <p>{{ activeDog.weight }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border">
+                <button class="btn btn-outline-dark mx-1" (click)='viewDog(activeDog)'>View {{ activeDog.name }}'s Page</button>
+                <button class="btn btn-outline-dark mx-1" (click)='editDog(activeDog)'>Edit {{ activeDog.name }}</button>
+                <button class="btn btn-outline-dark mx-1" (click)='deleteDog(activeDog)'>Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

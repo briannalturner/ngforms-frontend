@@ -1,0 +1,36 @@
+<div class="container" *ngIf='dog'>
+    <div class="m-2">
+        <h1 class="card-header border">{{ dog.name }}</h1>
+        <div class="card-body border-right border-left" style="width: inherit;">
+            <div class="text-center">
+                <img [src]="dog.image" class="rounded" alt="" style="max-width: 500px;">
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center border-right">
+                    <h5>Breed</h5>
+                    <p>{{ dog.breed }}</p>
+                </div>
+                <div class="col text-center border-right">
+                    <h5>Age</h5>
+                    <p>{{ dog.age }}</p>
+                </div>
+                <div class="col text-center border-right">
+                    <h5>Coat Color</h5>
+                    <p>{{ dog.coat }}</p>
+                </div>
+                <div class="col text-center border-right">
+                    <h5>Eye Color</h5>
+                    <p>{{ dog.eyes }}</p>
+                </div>
+                <div class="col text-center">
+                    <h5>Weight</h5>
+                    <p>{{ dog.weight }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer border">
+            <button class="btn btn-outline-dark mx-1" (click)='editDog(dog)'>Edit {{ dog.name }}</button>
+            <button class="btn btn-outline-dark mx-1" (click)='deleteDog(dog)'>Delete</button>
+        </div>
+    </div>
+</div>
